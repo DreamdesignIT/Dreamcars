@@ -109,6 +109,7 @@ namespace Dreamcars.Controllers
             }
             return imgs;
         }
+        // Minchia bo
         #endregion
         #region Clienti
         public IList<ClienteModel> getClientiAll(bool azienda) {
