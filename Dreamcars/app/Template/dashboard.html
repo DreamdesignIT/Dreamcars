@@ -1,0 +1,85 @@
+<div ng-show="!new" class="page-header">
+    <h1 class="page-title">Dashboard</h1>
+
+    <p>Bootstrap components written in pure <a href="http://angularjs.org">AngularJS</a> by the <a
+            href="http://angular-ui.github.io">AngularUI Team</a> Team</p>
+</div>
+
+<div class="page-content" ng-show="new">
+    <div class="panel">
+        <div class="panel-body container-fluid">
+            <div class="row row-lg">
+                <form ng-submit="creaDealer()">
+                    <div class="col-sm-6">
+                        <!-- Example Basic Form -->
+                        <div class="example-wrap">
+                            <h4 class="example-title">Crea la tua azienda</h4>
+
+
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label class="control-label" >Azienda</label>
+                                    <input type="text" class="form-control" ng-model="dealer.Azienda"
+                                           name="Azienda"
+                                           placeholder="Azienda"/>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label class="control-label" >Email</label>
+                                    <input type="email" class="form-control" ng-model="dealer.Email"
+                                           name="Email"
+                                           placeholder="Email" autocomplete="off"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-3">
+                                    <label class="control-label" >Indirizzo</label>
+                                    <input type="text" class="form-control" ng-model="dealer.Indirizzo"
+                                           name="Indirizzo"
+                                           placeholder="Indirizzo"/>
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label class="control-label" >Città</label>
+                                    <input type="text" class="form-control" ng-model="dealer.Citta"
+                                           name="Città"
+                                           placeholder="Città" />
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label class="control-label" >Cap</label>
+                                    <input type="text" class="form-control" ng-model="dealer.Cap"
+                                           name="Cap"
+                                           placeholder="Cap" />
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label class="control-label" >Provincia</label>
+                                    <input type="text" class="form-control" ng-model="dealer.Provincia"
+                                           name="Provincia"
+                                           placeholder="Provincia" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label" >Telefono</label>
+                                <input type="text" class="form-control" ng-model="dealer.Telefono"
+                                       name="Telefono"
+                                       placeholder="Telefono" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" >Partita Iva</label>
+                                <input type="text" class="form-control" ng-model="Piva"
+                                       name="Partita Iva"
+                                       placeholder="Partita Iva" />
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Crea</button>
+                                <button type="reset" class="btn btn-danger">Cancella</button>
+                            </div>
+
+                        </div>
+                        <!-- End Example Basic Form -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

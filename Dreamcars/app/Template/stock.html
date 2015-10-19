@@ -1,0 +1,58 @@
+<style>
+	.modal-open .modal{
+		margin-top:100px;
+	}
+</style>
+<div>
+	<div class="page-header">
+		<h1 class="page-title">{{tipologia}}</h1>
+
+		<p>Elenco e gestione dello stock auto {{tipologia}}</p>
+	</div>
+	<div class="panel">
+		<div class="panel-body">
+			<div class="row row-lg">
+				<div class="example-wrap">
+					<div class="table">
+						<div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+							<button type="button" ng-click="open()" class="btn btn-outline btn-default">
+								<i class="icon wb-plus" aria-hidden="true"></i>
+							</button>
+							<!--<button type="button" class="btn btn-outline btn-default">
+								<i class="icon wb-heart" aria-hidden="true"></i>
+							</button>
+							<button type="button" class="btn btn-outline btn-default">
+								<i class="icon wb-trash" aria-hidden="true"></i>
+							</button>-->
+						</div>
+						<table class="table table-responsive table-bordered table-striped" data-mobile-responsive="true">
+							<thead>
+							<tr>
+								<th data-field="Foto"></th>
+								<th data-field="Nome"></th>
+								<th data-field="Marca">Marca</th>
+								<th data-field="Modello">Modello</th>
+								<th data-field="Anno/Mese">Anno/Mese</th>
+								<th data-field="Prezzo Vendita">Prezzo Vendita</th>
+								<th data-field="Giacenza">Giacenza</th>
+								<th></th>
+							</tr>
+							<tr ng-repeat="p in data">
+								<td><img ng-src="{{p.Foto}}" class="img-responsive height-100"/></td>
+								<td>{{p.Name}}</td>
+								<td>{{p.Marca}}</td>
+								<td>{{p.Modello}}</td>
+								<td>{{p.Anno}} / {{p.Mese}}</td>
+								<td>{{p.PrezzoVendita}}</td>
+								<td>{{p.Giacenza}}</td>
+								<td><a type="button" href="{{'#/carDetails/' + p.Id}}" class="btn btn-block btn-info">Dettagli </a></td>
+							</tr>
+							</thead>
+						</table>
+					</div>
+				</div>
+				<!-- End Example Toolbar -->
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,256 @@
+<!--<div>
+    <div class="page-header">
+        <h1 class="page-title">{{idCar}}</h1>
+
+        <p>Elenco e gestione dello stock auto {{idCar}}</p>
+    </div>
+    <div class="panel">
+        <div class="panel-body">
+            <div class="row row-lg">
+                <div class="example-wrap">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<div class="row">
+    <div class="col-md-3">
+        <!-- Page Widget -->
+        <div class="widget widget-shadow text-center">
+            <div class="widget-header">
+                <div class="widget-header-content">
+
+                    <img ng-src="{{dataCar.Foto}}" class="img-responsive img-thumbnail">
+
+                    <h4 class="profile-user">{{dataCar.Name}}</h4>
+                    <!--<div class="profile-social">
+                        <a class="icon bd-twitter" href="javascript:void(0)"></a>
+                        <a class="icon bd-facebook" href="javascript:void(0)"></a>
+                        <a class="icon bd-dribbble" href="javascript:void(0)"></a>
+                        <a class="icon bd-github" href="javascript:void(0)"></a>
+                    </div>
+                    <button type="button" class="btn btn-primary">Follow</button>-->
+                </div>
+            </div>
+
+        </div>
+        <!-- End Page Widget -->
+    </div>
+
+    <div class="col-md-9">
+        <!-- Panel -->
+        <div class="panel">
+            <div class="panel-body nav-tabs-animate">
+                <tabset justified="true">
+                    <tab heading="Dati">
+                        <div class="page-header margin-vertical-10 bg-blue-600">
+                            <h1 class="page-title">{{dataCar.Name}}</h1>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-lg-9">
+                                <table>
+                                    <tr>
+                                        <td>Marca:</td>
+                                        <td>{{dataCar.Marca}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Modello:</td>
+                                        <td>{{dataCar.Modello}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Motore:</td>
+                                        <td>
+                                            <span class="ng-scope ng-binding editable" editable-text="dataCar.Motore"
+                                                  e-form="btnEditMotore" >
+                                                {{ dataCar.Motore || "empty" }}
+                                            </span>
+                                            <button class="btn btn-primary" ng-click="btnEditMotore.$show()"
+                                                    ng-hide="btnEditMotore.$visible">
+                                                <span class="glyphicon glyphicon-pencil"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Data Immatricolazione:</td>
+                                        <td>
+                                            <span class="ng-scope ng-binding editable"
+                                               editable-select="dataCar.Mese"
+                                               e-ng-options="s.value as s.text for s in mesiMotore"
+                                               e-form="btnEditMese">
+                                                {{ showStatusMese() }}
+                                            </span>
+                                            <button class="btn btn-primary" ng-click="btnEditMese.$show()"
+                                                    ng-hide="btnEditMese.$visible">
+                                                <span class="glyphicon glyphicon-pencil"></span>
+                                            </button>
+                                            <span class="ng-scope ng-binding editable"
+                                               editable-select="dataCar.Anno"
+                                               e-ng-options="s.value as s.text for s in anniMotore"
+                                               e-form="btnEditAnno">
+                                                {{ showStatusAnno() }}
+                                            </span>
+                                            <button class="btn btn-primary" ng-click="btnEditAnno.$show()"
+                                                    ng-hide="btnEditAnno.$visible">
+                                                <span class="glyphicon glyphicon-pencil"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Data entrata:</td>
+                                        <td>{{dataCar.DataEntrata}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Data uscita:</td>
+                                        <td>{{dataCar.DataUscita}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Giacenza:</td>
+                                        <td>{{dataCar.Giacenza}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Descrizione:</td>
+                                        <td>{{dataCar.Descrizione}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Stato:</td>
+                                        <td>{{dataCar.Stato}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Esenzione bollo:</td>
+                                        <td>
+                                            <span editable-checkbox="dataCar.EsenzioneBollo"
+                                                  e-title="Esente?"
+                                                  e-form="btnEditBollo">
+                                                {{ dataCar.EsenzioneBollo && "Esente" || "Non Esente" }}
+                                            </span>
+                                            <button class="btn btn-primary" ng-click="btnEditBollo.$show()"
+                                                    ng-hide="btnEditBollo.$visible">
+                                                <span class="glyphicon glyphicon-pencil"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Targa:</td>
+                                        <td>
+                                            <span class="ng-scope ng-binding editable"
+                                                      editable-text="dataCar.Targa"
+                                                  e-form="btnEditTarga" >
+                                                    {{ dataCar.Targa || "empty" }}
+                                                </span>
+                                            <button class="btn btn-primary"
+                                                    ng-click="btnEditTarga.$show()"
+                                                    ng-hide="btnEditTarga.$visible">
+                                                <span class="glyphicon glyphicon-pencil"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Telaio:</td>
+                                        <td>
+                                            <span class="ng-scope ng-binding editable"
+                                                  editable-text="dataCar.Telaio"
+                                                  e-form="btnEditTelaio" >
+                                                    {{ dataCar.Telaio || "empty" }}
+                                                </span>
+                                            <button class="btn btn-primary"
+                                                    ng-click="btnEditTelaio.$show()"
+                                                    ng-hide="btnEditTelaio.$visible">
+                                                <span class="glyphicon glyphicon-pencil"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <button type="submit" class="btn btn-success" ng-click="salva()">
+                                    <span class="glyphicon glyphicon-ok"></span> SALVA
+                                </button>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="pricing-list text-left">
+                                    <div class="pricing-header bg-blue-grey-800">
+                                        <div class="pricing-title">Prezzo Vendita</div>
+                                        <div class="pricing-price">
+                                            <span class="pricing-currency">€</span>
+                                            <span class="pricing-amount">{{dataCar.PrezzoVendita}}</span>
+                                        </div>
+                                        <p class="padding-horizontal-30 padding-bottom-25"><strong>Prezzo per
+                                            Dealer</strong> {{"€ " + dataCar.PrezzoDealer}}</p>
+                                    </div>
+                                    <ul class="pricing-features">
+                                        <li>
+                                            <strong>Prezzo di Acquisto:</strong> {{"€ " + dataCar.PrezzoAcquisto}}
+                                        </li>
+                                        <li>
+                                            <strong>Ripristini:</strong> {{"€ " + dataCar.TotaleRipristini}}
+                                        </li>
+                                        <li><strong>Costo totale:</strong> {{"€ " + (dataCar.PrezzoAcquisto + dataCar.TotaleRipristini)}}
+                                        </li>
+
+                                    </ul>
+                                    <div id="back1" class="pricing-footer text-center ">
+                                        <h4>Margine dealer: {{"€ " + (dataCar.PrezzoDealer - dataCar.TotaleRipristini - dataCar.PrezzoAcquisto)}}</h4>
+                                    </div>
+                                    <div id="back2" class="pricing-footer text-center ">
+                                        <h4>Margine privato: {{"€ " + (dataCar.PrezzoVendita - dataCar.TotaleRipristini - dataCar.PrezzoAcquisto)}}</h4>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </tab>
+                    <tab heading="Ripristini">
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="rip in dataCar.RipristiniEff">
+                                <div class="media media-lg">
+                                    <div class="media-left">
+                                        <i class="icon md-wrench" style="font-size: 41px;"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">{{rip.Name}}
+                                        </h4>
+                                        <small>active 14 minutes ago</small>
+                                        <div class="profile-brief">
+                                            <div class="media">
+
+
+                                                <div class="media-body padding-left-20">
+
+
+                                                    <p>{{rip.Descrizione}}</p>
+                                                    <h4 class="pull-right">{{"€ " + rip.Prezzo}}</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="well well-sm well-primary pull-right"><h2 class="color-palette">Totale ripristini
+                            {{"€ " + dataCar.TotaleRipristini}}</h2></div>
+                    </tab>
+                    <tab heading="Immagini">
+                        <div class="page-content">
+
+                            <ul class="blocks blocks-100 blocks-xlg-4 blocks-md-3 blocks-sm-2"  ng-repeat="img in dataCar.Immagini">
+                                <li>
+                                    <div class="widget widget-shadow ">
+                                        <figure class="widget-header overlay-hover overlay ">
+                                            <img class="overlay-figure overlay-scale" ng-src="{{img.Path}}"
+                                                 alt="...">
+                                            <figcaption class="overlay-panel overlay-background overlay-fade overlay-icon">
+                                                <a class="icon wb-search" href="{{img.Path}}"></a>
+                                            </figcaption>
+                                        </figure>
+                                        <h4 class="widget-title">{{img.Name}}</h4>
+                                    </div>
+                                </li>
+                            </ul>
+                            </div>
+                    </tab>
+                </tabset>
+            </div>
+        </div>
+        <!-- End Panel -->
+    </div>
+</div>

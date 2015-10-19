@@ -1,0 +1,28 @@
+<form name="userForm" ng-submit="submitForm()" novalidate>
+
+    <div class="modal-header">
+        <h3 class="modal-title">Inserisci Auto in Stock</h3>
+    </div>
+    <div class="modal-body">
+
+        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+            <label>Nome</label>
+            <input type="text" name="name" class="form-control" ng-model="cliente.nome" required>
+            <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Nome è obbligatorio.</p>
+        </div>
+        <div>
+            <label>Nome</label>
+            <select
+                    ng-model="cliente.azienda"
+                    name="tipo"
+                    required="true">
+                <option value="false" selected>Privato</option>
+                <option value="true">Azienda</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Inserisci</button>
+        <button class="btn btn-warning" type="reset" ng-click="cancel()">Cancel</button>
+    </div>
+</form>

@@ -1,0 +1,109 @@
+<div class="row">
+    <div class="panel panel-bordered panel-dark">
+        <div class="panel-heading">
+            <h3 class="panel-title"><i class="icon wb-user" aria-hidden="true"></i> {{data.Name}}</h3>
+        </div>
+        <div class="panel-body">
+            <form autocomplete="off">
+                <div class="row">
+                    <div class="form-group col-sm-3" ng-if="!data.Azienda">
+                        <div class="example-wrap">
+                            <h4 class="example-title">Nome</h4>
+                            <p class="form-control-static">
+                                <strong><a href="#" editable-text="data.Nome">{{ data.Nome || "empty" }}</a></strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-3" ng-if="!data.Azienda">
+                        <label class="control-label" for="cognome">Cognome</label>
+                        <strong><input type="text" class="form-control" id="cognome" name="cognome"
+                               placeholder="{{data.Cognome}}" autocomplete="off"/></strong>
+                    </div>
+                    <div class="form-group col-sm-3" ng-if="data.Azienda">
+                        <label class="control-label" for="ragioneSociale">Ragione Sociale</label>
+                        <strong></strong><input type="text" class="form-control" id="ragioneSociale" name="ragioneSociale"
+                               placeholder="{{data.Rs}}" autocomplete="off"/></strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-3">
+                        <label class="control-label" for="indirizzo">Indirizzo</label>
+                        <strong><input type="text" class="form-control" id="indirizzo" name="indirizzo"
+                                       placeholder="{{data.Indirizzo}}" autocomplete="off"/></strong>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label class="control-label" for="cap">CAP</label>
+                        <strong><input type="text" class="form-control" id="cap" name="cap"
+                                       placeholder="{{data.Cap}}" autocomplete="off"/></strong>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label class="control-label" for="provincia">Provincia</label>
+                        <strong><input type="text" class="form-control" id="provincia" name="provincia"
+                                                placeholder="{{data.Provincia}}" autocomplete="off"/></strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-3">
+                        <label class="control-label" for="codiceFiscale" ng-if="data.azienda">Partita Iva</label>
+                        <label class="control-label" for="codiceFiscale" ng-if="!data.azienda">Codice Fiscale</label>
+                        <strong><input type="text" class="form-control" id="codiceFiscale" name="codiceFiscale"
+                                       placeholder="{{data.Piva}}" autocomplete="off"/></strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-3">
+                        <label class="control-label" for="email">Email</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="icon fa-envelope" aria-hidden="true"></i>
+                            </span>
+                            <strong><input type="text" class="form-control" id="email" name="email"
+                                           placeholder="{{data.Email}}" autocomplete="off"/></strong>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label class="control-label" for="telefono">Telefono</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="icon fa-phone" aria-hidden="true"></i>
+                            </span>
+                            <strong><input type="text" class="form-control" id="telefono" name="telefono"
+                                        placeholder="{{data.Telefono}}" autocomplete="off"/></strong>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label class="control-label" for="cellulare">Cellulare</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="icon fa-mobile-phone" aria-hidden="true"></i>
+                            </span>
+                            <strong><input type="text" class="form-control" id="cellulare" name="cellulare"
+                                        placeholder="{{data.Cellulare}}" autocomplete="off"/></strong>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label class="control-label" for="referente">Referente</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="icon fa-male" aria-hidden="true"></i>
+                            </span>
+                            <strong><input type="text" class="form-control" id="referente" name="referente"
+                                        placeholder="{{data.Referente}}" autocomplete="off"/></strong>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+    <div>
+        <button type="button" class="btn btn-floating btn-success">
+            <i class="icon fa-pencil" aria-hidden="true"></i>
+        </button>
+        &nbsp;
+        <button type="button" class="btn btn-floating btn-danger">
+            <i class="icon fa-remove" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>

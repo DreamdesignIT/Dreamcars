@@ -1,0 +1,81 @@
+{{data.azienda}}
+<div>
+    <div class="page-header">
+        <h1 class="page-title">Clienti</h1>
+
+        <p>Elenco clienti</p>
+    </div>
+    <div class="panel">
+        <div class="panel-body">
+            <div class="row row-lg">
+                <div class="example-wrap">
+                    <div class="table">
+                        <div class="btn-group hidden-xs" id="exampleToolbar" role="group">
+                            <button type="button" ng-click="open()" class="btn btn-outline btn-default">
+                                <i class="icon wb-plus" aria-hidden="true"></i>
+                            </button>
+                            <!--<button type="button" class="btn btn-outline btn-default">
+                                <i class="icon wb-heart" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline btn-default">
+                                <i class="icon wb-trash" aria-hidden="true"></i>
+                            </button>-->
+                        </div>
+                        <!--TABELLA AZIENDE-->
+                        <table class="table table-responsive table-bordered table-striped"
+                               ng-if="data.length > 0 && p.Azienda"
+                               data-mobile-responsive="true">
+                            <thead>
+                            <tr>
+                                <th data-field="Nome">Nome</th>
+                                <th data-field="Cognome">Cognome</th>
+                                <th data-field="Azienda">Tipo</th>
+                                <th data-field="Telefono">Telefono</th>
+                                <th data-field="Email">Email</th>
+                                <th></th>
+                            </tr>
+                            <tr ng-repeat="p in data">
+                                <td>{{p.Rs}}</td>
+                                <td>{{p.Cognome}}</td>
+                                <td>Azienda</td>
+                                <td>{{p.Telefono}}</td>
+                                <td>{{p.Email}}</td>
+                                <td><a type="button" href="{{'#/cliente/' + p.Id}}"
+                                       class="btn btn-block btn-info">Dettaglio</a></td>
+                            </tr>
+                            </thead>
+                        </table>
+                        <!--TABELLA PRIVATI-->
+                        <table class="table table-responsive table-bordered table-striped"
+                               ng-if="data.length > 0 && !p.Azienda"
+                               data-mobile-responsive="true">
+                            <thead>
+                            <tr>
+                                <th data-field="Nome">Nome</th>
+                                <th data-field="Cognome">Cognome</th>
+                                <th data-field="Telefono">Telefono</th>
+                                <th data-field="Email">Email</th>
+                                <th></th>
+                            </tr>
+                            <tr ng-repeat="p in data">
+                                <td>{{p.Nome}}</td>
+                                <td>{{p.Cognome}}</td>
+                                <td>{{p.Telefono}}</td>
+                                <td>{{p.Email}}</td>
+                                <td>
+                                    <a type="button" href="{{'#/cliente/' + p.Id}}" class="btn btn-icon btn-primary btn-outline">
+                                        <i class="icon wb-eye" aria-hidden="true"></i>
+                                    </a>
+                                </td>
+                                <!--<td><a type="button" href="{{'#/cliente/' + p.Id}}"
+                                       class="btn btn-block btn-info">Dettaglio</a></td>-->
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <!-- End Example Toolbar -->
+            </div>
+        </div>
+    </div>
+</div>
