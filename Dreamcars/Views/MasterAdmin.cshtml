@@ -1,0 +1,373 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+Layout = null;
+}
+
+<!--[if IE 7 ]>
+<html lang="en-gb" class="isie ie7 oldie no-js"> <![endif]-->
+<!--[if IE 8 ]>
+<html lang="en-gb" class="isie ie8 oldie no-js"> <![endif]-->
+<!--[if IE 9 ]>
+<html lang="en-gb" class="isie ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<!--<![endif]-->
+<!--<![endif]-->
+<html class="no-js css-menubar" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="bootstrap admin template">
+    <meta name="author" content="">
+
+    <title>AngularJs | Remark Admin Template</title>
+
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap-extend.min.css">
+    <link rel="stylesheet" href="/assets/css/site.min.css">
+
+    <!-- Plugins -->
+    <!--<link rel="stylesheet" href="/assets/vendor/animsition/animsition.min.css">-->
+    <link rel="stylesheet" href="/assets/vendor/asscrollable/asScrollable.min.css">
+    <link rel="stylesheet" href="/assets/vendor/switchery/switchery.min.css">
+    <link rel="stylesheet" href="/assets/vendor/intro-js/introjs.min.css">
+    <link rel="stylesheet" href="/assets/vendor/slidepanel/slidePanel.min.css">
+    <link rel="stylesheet" href="/assets/vendor/flag-icon-css/flag-icon.min.css">
+
+    <!-- Plugins For This Page -->
+    <link rel="stylesheet" href="/assets/vendor/bootstrap-table/bootstrap-table.css">
+    <link rel="stylesheet" href="/bower_components/angular-xeditable/dist/css/xeditable.css"/>
+    <link rel="stylesheet" href="/bower_components/ngprogress/ngProgress.css"/>
+
+    <!-- Page -->
+    <link rel="stylesheet" href="/assets/examples/css/uikit/icons.css">
+    <link rel="stylesheet" href="/assets/examples/css/uikit/colors.css">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="/assets/fonts/web-icons/web-icons.min.css">
+    <link rel="stylesheet" href="/assets/fonts/brand-icons/brand-icons.min.css">
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+    <link rel="stylesheet" href="/assets/fonts/font-awesome/font-awesome.css">
+    <link rel="stylesheet" href="/assets/fonts/7-stroke/7-stroke.css">
+    <link rel="stylesheet" href="/assets/fonts/ionicons/ionicons.css">
+    <link rel="stylesheet" href="/assets/fonts/material-design/material-design.css">
+    <link rel="stylesheet" href="/assets/fonts/mfglabs/mfglabs.css">
+    <link rel="stylesheet" href="/assets/fonts/open-iconic/open-iconic.css">
+    <link rel="stylesheet" href="/assets/fonts/themify/themify.css">
+    <link rel="stylesheet" href="/assets/fonts/weather-icons/weather-icons.css">
+    <link rel="stylesheet" href="/assets/fonts/glyphicons/glyphicons.css">
+
+    <!--[if lt IE 9]>
+    <script src="/assets/vendor/html5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--[if lt IE 10]>
+    <script src="/assets/vendor/media-match/media.match.min.js"></script>
+    <script src="/assets/vendor/respond/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Scripts -->
+    <script src="/assets/vendor/modernizr/modernizr.min.js"></script>
+    <script src="/assets/vendor/breakpoints/breakpoints.min.js"></script>
+    <script>
+        Breakpoints();
+    </script>
+</head>
+<body ng-app="DreamApp">
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation" ng-controller="menuCtrl">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle hamburger hamburger-close navbar-toggle-left hided"
+                data-toggle="menubar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="hamburger-bar"></span>
+        </button>
+        <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-collapse"
+                data-toggle="collapse">
+            <i class="icon wb-more-horizontal" aria-hidden="true"></i>
+        </button>
+        <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
+            <img class="navbar-brand-logo" src="/assets/images/logo.png" title="Remark">
+            <span class="navbar-brand-text"> Remark</span>
+        </div>
+        <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-search"
+                data-toggle="collapse">
+            <span class="sr-only">Toggle Search</span>
+            <i class="icon wb-search" aria-hidden="true"></i>
+        </button>
+    </div>
+
+    <div class="navbar-container container-fluid">
+        <!-- Navbar Collapse -->
+        <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
+            <!-- Navbar Toolbar -->
+            <ul class="nav navbar-toolbar">
+                <li class="hidden-float" id="toggleMenubar">
+                    <a data-toggle="menubar" href="#" role="button">
+                        <i class="icon hamburger hamburger-arrow-left">
+                            <span class="sr-only">Toggle menubar</span>
+                            <span class="hamburger-bar"></span>
+                        </i>
+                    </a>
+                </li>
+                <li class="hidden-xs" id="toggleFullscreen">
+                    <a class="icon icon-fullscreen" data-toggle="fullscreen" href="#" role="button">
+                        <span class="sr-only">Toggle fullscreen</span>
+                    </a>
+                </li>
+                <li class="hidden-float">
+                    <a class="icon wb-search" data-toggle="collapse" href="#" data-target="#site-navbar-search"
+                       role="button">
+                        <span class="sr-only">Toggle Search</span>
+                    </a>
+                </li>
+
+            </ul>
+            <!-- End Navbar Toolbar -->
+
+            <!-- Navbar Toolbar Right -->
+            <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+
+                <li ng-show="!new" class="ng-cloak"><span class="avatar avatar-online"><img ng-show="!new"
+                                                                                            ng-src="{{dealerData.Logo}}"></span>
+                    | <span ng-bind="dealerData.Azienda"></span> |
+                </li>
+                <li>
+                    @Html.Partial("Loginstatus")
+                </li>
+                <li class="dropdown">
+                    <a class="navbar-avatar dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"
+                       data-animation="scale-up" role="button">
+
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="presentation">
+                            <a href="javascript:void(0)" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i>
+                                Profile</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="javascript:void(0)" role="menuitem"><i class="icon wb-payment"
+                                                                            aria-hidden="true"></i> Billing</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="javascript:void(0)" role="menuitem"><i class="icon wb-settings"
+                                                                            aria-hidden="true"></i> Settings</a>
+                        </li>
+                        <li class="divider" role="presentation"></li>
+                        <li role="presentation">
+                            <a href="javascript:void(0)" role="menuitem"><i class="icon wb-power"
+                                                                            aria-hidden="true"></i> Logout</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+            </ul>
+            <!-- End Navbar Toolbar Right -->
+        </div>
+        <!-- End Navbar Collapse -->
+
+        <!-- Site Navbar Seach -->
+        <div class="collapse navbar-search-overlap" id="site-navbar-search">
+            <form role="search">
+                <div class="form-group">
+                    <div class="input-search">
+                        <i class="input-search-icon wb-search" aria-hidden="true"></i>
+                        <input type="text" class="form-control" name="site-search" placeholder="Search...">
+                        <button type="button" class="input-search-close icon wb-close" data-target="#site-navbar-search"
+                                data-toggle="collapse" aria-label="Close"></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- End Site Navbar Seach -->
+    </div>
+</nav>
+<div class="site-menubar">
+    <div class="site-menubar-body">
+        <div>
+            <div>
+                <ul class="site-menu">
+                    <li class="site-menu-category">General</li>
+                    <li class="site-menu-item">
+                        <a href="#/" data-slug="dashboard">
+                            <i class="site-menu-icon fa-dashboard" aria-hidden="true"></i>
+                            <span class="site-menu-title">Dashboard</span>
+                            <!--<div class="site-menu-badge">
+                                <span class="badge badge-success">2</span>
+                            </div>-->
+                        </a>
+
+                    </li>
+                    <li ng-show="!new" class="site-menu-item has-sub">
+                        <a href="javascript:void(0)" data-slug="layout">
+                            <i class="site-menu-icon fa-truck" aria-hidden="true"></i>
+                            <span class="site-menu-title">Stock</span>
+                            <span class="site-menu-arrow"></span>
+                        </a>
+                        <ul class="site-menu-sub">
+                            <li class="site-menu-item">
+                                <a class="animsition-link" href="#/stock/1" data-slug="layout-menu-collapsed">
+                                    <i class="site-menu-icon " aria-hidden="true"></i>
+                                    <span class="site-menu-title">Stock Nuovo</span>
+                                </a>
+                            </li>
+                            <li class="site-menu-item">
+                                <a class="animsition-link" href="#/stock/2" data-slug="layout-menu-collapsed">
+                                    <i class="site-menu-icon " aria-hidden="true"></i>
+                                    <span class="site-menu-title">Stock Usato</span>
+                                </a>
+                            </li>
+                            <li class="site-menu-item">
+                                <a class="animsition-link" href="#/stock/3" data-slug="layout-menu-collapsed">
+                                    <i class="site-menu-icon " aria-hidden="true"></i>
+                                    <span class="site-menu-title">Stock Km0</span>
+                                </a>
+                            </li>
+                            <li class="site-menu-item">
+                                <a class="animsition-link" href="#/stock/0" data-slug="layout-menu-collapsed">
+                                    <i class="site-menu-icon " aria-hidden="true"></i>
+                                    <span class="site-menu-title">Stock Tutte</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li ng-show="!new" class="site-menu-item">
+                        <a href="#/vendute" data-slug="layout">
+                            <i class="site-menu-icon icon fa-automobile" aria-hidden="true"></i>
+                            <span class="site-menu-title">Auto Vendute</span>
+                        </a>
+
+                    </li>
+
+                    <li ng-show="!new" class="site-menu-item has-sub">
+                        <a href="javascript:void(0)" data-slug="layout">
+                            <i class="site-menu-icon icon fa-user" aria-hidden="true"></i>
+                            <span class="site-menu-title">Clienti</span>
+                            <span class="site-menu-arrow"></span>
+                        </a>
+                        <ul class="site-menu-sub">
+                            <li class="site-menu-item">
+                                <a class="animsition-link" href="#/clientiAll/true"
+                                   data-slug="layout-menu-collapsed">
+                                    <i class="site-menu-icon " aria-hidden="true"></i>
+                                    <span class="site-menu-title">Aziende</span>
+                                </a>
+                            </li>
+                            <li class="site-menu-item">
+                                <a class="animsition-link" href="#/clientiAll/false"
+                                   data-slug="layout-menu-collapsed">
+                                    <i class="site-menu-icon " aria-hidden="true"></i>
+                                    <span class="site-menu-title">Privati</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="site-menubar-footer">
+        <a href="javascript: void(0);" class="fold-show" data-placement="top" data-toggle="tooltip"
+           data-original-title="Settings">
+            <span class="icon wb-settings" aria-hidden="true"></span>
+        </a>
+        <a href="javascript: void(0);" data-placement="top" data-toggle="tooltip" data-original-title="Lock">
+            <span class="icon wb-eye-close" aria-hidden="true"></span>
+        </a>
+        <a href="javascript: void(0);" data-placement="top" data-toggle="tooltip" data-original-title="Logout">
+            <span class="icon wb-power" aria-hidden="true"></span>
+        </a>
+    </div>
+</div>
+
+
+@RenderBody()
+
+
+<!-- Footer -->
+<footer class="site-footer">
+    <!-- TODO: Mettere link giusto per sito dreamcars portale -->
+    <span class="site-footer-legal">© @DateTime.Today.ToString("yyyy")
+        <a href="http://www.dreamdesign.it">Dreamcars</a></span>
+
+    <div class="site-footer-right">
+        Creato con <i class="red-600 wb wb-heart"></i> da <a href="http://www.dreamdesign.it">Dream
+        Design</a>
+    </div>
+</footer>
+
+<!-- Core  -->
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/bootstrap.js"></script>
+<script src="/assets/vendor/asscroll/jquery-asScroll.min.js"></script>
+<script src="/assets/vendor/mousewheel/jquery.mousewheel.min.js"></script>
+<script src="/assets/vendor/asscrollable/jquery.asScrollable.all.min.js"></script>
+<script src="/assets/vendor/ashoverscroll/jquery-asHoverScroll.min.js"></script>
+
+<!--Plugins-->
+<script src="/assets/vendor/switchery/switchery.min.js"></script>
+<script src="/assets/vendor/intro-js/intro.js"></script>
+<script src="/assets/vendor/screenfull/screenfull.js"></script>
+<script src="/assets/vendor/slidepanel/jquery-slidePanel.js"></script>
+
+
+<!-- Plugins For This Page -->
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-resource/angular-resource.js"></script>
+<script src="/bower_components/angular-route/angular-route.js"></script>
+<script src="/assets/vendor/angular-ui-bootstrap/ui-bootstrap.min.js"></script>
+<script src="/assets/vendor/angular-ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="/assets/vendor/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="/assets/vendor/bootstrap-table/extensions/mobile/bootstrap-table-mobile.js"></script>
+<script src="/assets/vendor/isotope/isotope.min.js"></script>
+<!-- Scripts -->
+<script src="/assets/js/core.min.js"></script>
+<script src="/assets/js/site.min.js"></script>
+
+<script src="/assets/js/sections/menu.min.js"></script>
+<script src="/assets/js/sections/menubar.min.js"></script>
+<script src="/assets/js/sections/gridmenu.min.js"></script>
+<script src="/assets/js/sections/sidebar.min.js"></script>
+<script src="/assets/js/configs/config-colors.min.js"></script>
+<script src="/assets/js/configs/config-tour.min.js"></script>
+<script src="/assets/js/components/asscrollable.min.js"></script>
+<script src="/assets/js/components/slidepanel.min.js"></script>
+<script src="/assets/js/components/switchery.min.js"></script>
+<script src="/bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
+
+<!-- Scripts For This Page -->
+<script src="/bower_components/ngprogress/build/ngprogress.min.js"></script>
+<script src="/app/Controllers/DAWievControllers.js"></script>
+<script src="/app/Resources/DAResources.js"></script>
+<script src="/app/MainAdmin.js"></script>
+
+
+<script>
+    (function (document, window, $) {
+        'use strict';
+
+        var Site = window.Site;
+        $(document).ready(function () {
+            Site.run();
+        });
+    })(document, window, jQuery);
+</script>
+
+</body>
+
+</html>
